@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400000}
-  - component: {fileID: 11400000}
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: SocketIO
   m_TagString: Untagged
@@ -28,7 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -37,15 +36,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961346d7e16a445ff93777573e78efd6, type: 3}
+  m_Script: {fileID: 11500000, guid: 251dc7db9857fae4e8c9293b45173db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: ws://127.0.0.1:4567/socket.io/?EIO=4&transport=websocket
+  url: ws://localhost:4567/socket.io/?EIO=4&transport=websocket
   autoConnect: 1
-  reconnectDelay: 5
-  ackExpirationTime: 1800
-  pingInterval: 25
-  pingTimeout: 60
+  recconectDelay: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -57,3 +53,4 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
+  m_IsExploded: 1
