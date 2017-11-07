@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DukeLabs.Core.UI
 {
-    public sealed class UpdateManager : UnitySingleton<UpdateManager>
+    public sealed class UpdateManager : MonoBehaviour // UnitySingleton<UpdateManager>
     {
         private readonly List<IUpdatable> _updatableComponents = new List<IUpdatable>();
         private readonly List<IUpdatable> _fixedUpdatableComponents = new List<IUpdatable>();

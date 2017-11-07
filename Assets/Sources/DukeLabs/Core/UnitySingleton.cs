@@ -27,7 +27,6 @@ namespace DukeLabs.Core
         {
             if (_instance != null && this != _instance)
             {
-                Debug.Log("aasasa");
                 Destroy(this.gameObject);
                 return;
             }

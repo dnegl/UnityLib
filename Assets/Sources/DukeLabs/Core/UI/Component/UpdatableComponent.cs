@@ -1,10 +1,12 @@
 ﻿using DukeLabs.Core.UI.Component.Interface;
-using UnityEngine;
+using Zenject;
 
 namespace DukeLabs.Core.UI.Component
 {
     public class UpdatableComponent : UIComponent, IUpdatable
     {
+        [Inject] private UpdateManager _updateManager;
+
         public virtual bool IsFixed
         {
             get { return false; }
@@ -17,7 +19,7 @@ namespace DukeLabs.Core.UI.Component
 
         public virtual void Awake()
         {
-            UpdateManager.Instance.AddComponent(this);
+            _updateManager.AddComponent(this);
         }
 
         public virtual void OnUpdate()
@@ -31,11 +33,10 @@ namespace DukeLabs.Core.UI.Component
         public virtual void OnLateUpdate()
         {
         }
-        
+
         public virtual void OnDestroy()
         {
-            if(UpdateManager.IsInitialized)
-                UpdateManager.Instance.RemoveComponent(this);
+            _updateManager.RemoveComponent(this);
         }
     }
 }
