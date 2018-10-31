@@ -33,10 +33,15 @@ using SocketIO;
 public class TestSocketIO : MonoBehaviour
 {
 	private SocketIOComponent socket;
+	private GameObject go;
+
+	public void Awake()
+	{
+	 	go = GameObject.Find("SocketIO");
+	}
 
 	public void Start() 
 	{
-		GameObject go = GameObject.Find("SocketIO");
 		socket = go.GetComponent<SocketIOComponent>();
 
 		socket.On("open", TestOpen);
@@ -74,7 +79,7 @@ public class TestSocketIO : MonoBehaviour
 	public void TestOpen(SocketIOEvent e)
 	{
 		Debug.Log("[SocketIO] Open received: " + e.name + " " + e.data);
-	}
+	}	
 	
 	public void TestBoop(SocketIOEvent e)
 	{
@@ -97,5 +102,10 @@ public class TestSocketIO : MonoBehaviour
 	public void TestClose(SocketIOEvent e)
 	{	
 		Debug.Log("[SocketIO] Close received: " + e.name + " " + e.data);
+	}
+
+	public void OnDestroy()
+	{
+		StopCoroutine("BeepBoop");
 	}
 }
